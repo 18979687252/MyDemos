@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			font-size:12px;
+			line-height:2;
+		}
+		ul,li{
+			list-style:none;
+		}
+		#plist{
+			width:900px;
+			margin:100px auto;
+		}
+		#plist li{
+			width:280px;
+			height:290px;
+			margin-right:20px;
+			float:left; 
+			position:relative;
+			z-index:10;
+			overflow:hidden; 
+			transition:all 500ms;
+		}
+		#plist li .mask{
+			width:280px;
+			height:160px;
+			overflow:hidden;
+			position:absolute;
+			left:0;
+			top:-160px;
+			z-index:20;
+			transition:all 500ms;
+			background:#f90;
+			opacity:.5;
+		}
+		#plist li img{
+			width:280px;
+			height:160px;
+		}
+		#plist li div.box{
+			padding:15px; 
+			position:relative;
+			 z-index:6;
+			}
+		#plist li h3{
+			font-size:12px;
+		}
+		#plist li .csbg{
+			width:280px;
+			height:130px;
+			background:#f90;
+			position:absolute;
+			left:0;
+			bottom:-130px;
+			z-index:5;
+			transition:all 500ms;
+		}
+		#plist li:hover {
+			color:#fff;
+		}
+		#plist li:hover .mask{
+			top:0px;
+		}
+		#plist li:hover .csbg{
+			bottom:0px;
+		}
+	</style>
+</head>
+<body>
+	<ul id="plist">
+		<li>
+			<div class="mask"></div>
+			<div>
+				<img src="img/sys.jpg">
+				<div class="box">
+					<h3>我院成功举办技能竞赛</h3>
+					<span>5月12日下午2：00-6：00，我院在信息楼7402成功举办了电子产品设计与制作技能竞赛。经过紧张激烈的比赛，2016级电子信息工程技术</span>
+				</div>
+			</div>
+			<div class="csbg"></div>
+		</li>
+		<li>
+			<div class="mask"></div>
+			<div>
+				<img src="img/sys.jpg">
+				<div class="box">
+					<h3>创意展现才华，舞台放飞梦想</h3>
+					<span>5月12日下午3：30，我院在信息楼7307成功举办了第二届梦想杯软件设计大赛。大赛由软件教研室主办，大赛方案自3月25日公示以来，得</span>
+				</div>
+			</div>
+			<div class="csbg"></div>
+		</li>
+		<li>
+			<div class="mask"></div>
+			<div>
+				<img src="img/sys.jpg">
+				<div class="box">
+					<h3>以赛促学、以赛促教</h3>
+					<span>为了全面提高学生的职业素质和技能水平，培养合格技能型人才，校内技能竞赛陆续拉开序幕，我院本着以赛促学、以赛促教的宗旨，各</span>
+				</div>
+			</div>
+			<div class="csbg"></div>
+		</li>
+	</ul>
+</body>
+</html>

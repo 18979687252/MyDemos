@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		a:link,a:visited,a:hover {
+		    color: #fff;
+		    text-decoration: none;
+		}
+		.mod-navbar {
+			height: 40px;
+			background-color: #01204f;
+		}
+		.clearfix {
+			clear:both;
+			overflow: hidden;
+		}
+		.menu-list{
+			width: 984px;
+			margin:0 auto;
+		}
+		.lavalamp {
+			list-style: none;
+		}
+		.lavalamp-object {
+			background-color: #c00;
+		}
+		.menu-list li {
+			float: left;
+		}
+		.lavalamp-item{
+			position:relative;
+			z-index:5;
+		}
+		.mod-navbar .menu-list a {
+		    display: block;
+		    height: 100%;
+		    font-size: 14px;
+		    line-height: 40px;
+		    font-weight: 700;
+		    padding: 0 10px;
+		    color: #fff;
+		}
+		.mod-navbar .menu-list .navitem-index a {
+		    padding-left: 30px;
+		    background-image: url(http://gss0.bdstatic.com/5foIcy0a2gI2n2jgoY3K/static/fisp_static/common/img/navbar/icon-index_2c3bd00.png);
+		    background-repeat: no-repeat;
+		    background-position: 6px 7px;
+		}
+		.mod-navbar .menu-list .current a {
+		    background-color: #c00;
+		}
+	</style>
+</head>
+<body>
+	<div id="menu" class="mod-navbar">
+		<div class="menu-list">
+			<ul class="clearfix lavalamp" style="position:relative;">
+				<div class="lavalamp-object" style="position: absolute; width: 68px; height: 40px; top: 0px; left: 0px; overflow: hidden;"></div>
+				<li class="navitem-index current active lavalamp-item"><a href="/">首页</a></li>
+				<li class="icon-new-wrapper lavalamp-item" ><a href="https://baijia.baidu.com/" id="nav-hot-link" target="_blank">百家号</a></li>
+				<li class="lavalamp-item" ><a href="###">国内</a></li>
+				<li class="lavalamp-item" ><a href="###">国际</a></li>
+				<li class="lavalamp-item" ><a href="###">军事</a></li>
+				<li class="lavalamp-item" ><a href="###">财经</a></li>
+				<li class="lavalamp-item" ><a href="/ent">娱乐</a></li>
+				<li class="lavalamp-item" ><a href="/sports">体育</a></li>
+				<li class="lavalamp-item" ><a href="/internet">互联网</a></li>
+				<li class="lavalamp-item" ><a href="/tech">科技</a></li>
+				<li class="lavalamp-item" ><a href="/game">游戏</a></li>
+				<li class="lavalamp-item" ><a href="/lady">女人</a></li>
+				<li class="lavalamp-item" ><a href="/auto">汽车</a></li>
+				<li class="lavalamp-item" ><a href="/house">房产</a></li>
+				<li class="lavalamp-item" ><a href="http://jian.news.baidu.com/" target="_blank">个性推荐</a></li>
+			</ul>
+		</div>
+	</div>
+	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js""></script>
+	<script>
+		$(function () {
+			$('.lavalamp-item').hover(function(){
+				var index = $(".lavalamp-item").index(this)
+				var left = 0
+				var width = $(".lavalamp-item").eq(index).width()
+				for(var i = 0; i < $('.lavalamp-item').length - 1;i++){
+					if(i < index){
+						left += $('.lavalamp-item').eq(i).width()
+					}
+				}
+				//console.log(width,left)
+				$('.lavalamp-object').css({width:width})
+				$('.lavalamp-object').stop().animate({left:left},400,'linear')
+			})
+			$('.lavalamp-item').click(function(){
+				$(this).addClass('current').siblings().removeClass('current')
+			})
+		})
+	</script>
+</body>
+</html>

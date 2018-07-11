@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <title>测试</title>
+   <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+<div id="news" style="background-color: pink;height: 2.8rem;overflow:hidden;line-height: 45px;">
+   <ul style="margin-top:0!important">
+      <li>
+         <a href="#">1首页</a>
+      </li>
+      <li>
+         <a href="#">2产品</a>
+      </li>
+      <li>
+         <a href="#">3联系我们</a>
+      </li>
+      <li>
+         <a href="#">4支付方式</a>
+      </li>
+      <li>
+         <a href="#">5销售QQ</a>
+      </li>
+      <li>
+         <a href="#">6售后服务</a>
+      </li>
+   </ul>
+</div>
+
+
+
+<script language="javascript">
+
+   function autoScroll(obj){
+      $(obj).find('ul').animate({
+         marginTop: '-2.8rem'
+      },1000,function(){
+         $(this).css({marginTop : "0px"});
+         var li  =$("ul").children().first().clone()
+         $("ul li:last").after(li );
+         $("ul li:first").remove();
+
+      })
+   }
+
+
+   $(function(){
+
+      setInterval('autoScroll("#news")',2000);
+      console.log(666);
+
+
+   })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Echarts-双轴图</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/echarts/4.0.2/echarts.js"></script>
+    <style>
+        body, html {
+            width: 99%;
+            height: 99%;
+            font-family: "微软雅黑";
+            font-size: 12px;
+        }
+
+        #double {
+            width: 900px;
+            height: 500px;
+            font-family: "agency fb";
+            font-weight: bolder;
+            background: #d7d7d7;
+        }
+    </style>
+
+</head>
+<body>
+<div id="double"></div>
+</body>
+<script>
+    $(function () {
+        var chart = document.getElementById('double');
+        var echart = echarts.init(chart);
+        option = {
+		    xAxis: {
+		        type: 'category',
+		        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+		    },
+		    yAxis: {
+		        type: 'value'
+		    },
+		    visualMap: {
+		        show: false,
+		        dimension: 0,
+		        pieces: [],  //pieces的值由动态数据决定
+		        outOfRange: {
+		            color: 'blue'
+		        }
+		    },
+		    series: [{
+		        data: [],
+		        type: 'line',
+		        smooth: true
+		    }]
+		};
+		var data = [390, 300, 300, 300, 500, 600, 750];  //模拟动态数据
+		var j = 0; 
+		option.series[0].data = data; 
+		//连续为300时，颜色变为红色
+		for(let i = 0; i < data.length; i++) {
+		    if(data[i] >= 300 && data[i + 1] <= 500) {
+		        option.visualMap.pieces[j] =  {gte:i,lte:i+1,color:'yellow'}; 
+		        j++; 
+		    }
+		}
+		console.log(option.visualMap)
+        echart.setOption(option)
+    });
+</script>
+</html>

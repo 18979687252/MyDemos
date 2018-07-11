@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bootstrap实现导航栏的响应式布局，当在小屏幕、手机屏幕浏览时自动折叠隐藏</title>    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
+	<style>
+		/*轮播器--------------------------------------------------------------------------------------------------------------*/
+		/*将轮播器头部外边距设置50像素*/
+		#myCarousel {
+		    margin: 50px 0 0 0;
+		}
+		.carousel-inner .item img {
+		    margin: 0 auto;
+		    min-height:160px;
+		}
+</style>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
+</head>
+<body>
+    <div class="navbar navbar-fixed-top navbar-inverse" >    
+      <div class="container">    
+        <div class="nav-logo" style="float:left;" >  
+            <a class="" href="#">  
+                <img class="img-responsive" src="logo.png" alt="北京市慧谷阳光科技有限公司" style="height: 100%;width: auto;">  
+            </a>  
+        </div>  
+        <div class="navbar-header">    
+          <button type="button" class="navbar-toggle" data-toggle="collapse" href="#navBar">    
+            <span class="icon-bar"></span>  
+            <span class="icon-bar"></span>  
+            <span class="icon-bar"></span>  
+          </button>  
+        </div>    
+        <div class="collapse navbar-collapse navbar-right" id="navBar">    
+          <ul class="nav navbar-nav">  
+            <li><a href="#">首页</a></li>  
+            <li><a href="#">公司介绍</a></li>  
+            <li class="dropdown">  
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
+                    产品中心<span class="caret"></span>  
+                </a>  
+                <ul class="dropdown-menu" role="menu">  
+                    <li><a href="#">SmartCall智能呼</a></li>  
+                    <li><a href="#">运营管理平台ＯＭＳ</a></li>  
+                    <li><a href="#">客户关系管理系统</a></li>  
+                    <li><a href="#">电销系统</a></li>  
+                    <li><a href="#">知识库管理</a></li>  
+                    <li><a href="#">排班管理模块</a></li>  
+                    <li><a href="#">考试培训系统</a></li>  
+                    <li><a href="#">多媒体调度指挥系统</a></li>  
+                </ul>  
+            </li>  
+            <li class="dropdown">  
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">  
+                    行业方案<span class="caret"></span>  
+                </a>  
+                <ul class="dropdown-menu" role="menu">  
+                    <li><a href="#">多媒体呼叫中心</a></li>  
+                    <li><a href="#">保险行业</a></li>  
+                    <li><a href="#">制造行业</a></li>  
+                    <li><a href="#">政府部门</a></li>  
+                    <li><a href="#">教育行业</a></li>  
+                    <li><a href="#">酒店/旅游</a></li>  
+                    <li><a href="#">电子商务</a></li>  
+                    <li><a href="#">社区服务</a></li>  
+                    <li><a href="#">铁路/客运</a></li>  
+                    <li><a href="#">医疗卫生</a></li>  
+                </ul>  
+            </li>  
+            <li><a href="#">公司新闻</a></li>  
+            <li><a href="#">典型客户</a></li>  
+            <li><a href="#">合作伙伴</a></li>  
+            <li><a href="#">联系我们</a></li>  
+          </ul>    
+        </div>  
+      </div>  
+    </div>
+	<div id="myCarousel" class="carousel slide">                       
+	   <ol class="carousel-indicators">                                
+	        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>    
+	        <li data-target="#myCarousel" data-slide-to="1"></li>
+	        <li data-target="#myCarousel" data-slide-to="2"></li>
+	    </ol>
+	    <div class="carousel-inner">                                    <!--设置轮播器图片区域-->
+	        <div class="item active">                                <!--设置轮播器图片样式-->
+	            <a href="#">
+                <img src="img/banner1.png" class="visible-lg-block img-responsive" alt="第一张">
+                <img src="img/index_1.png" class="visible-xs-block img-responsive" alt="第一张">
+                </a>
+	        </div>
+	        <div class="item">
+	            <a href="#"><img src="img/banner2.png" class="img-responsive" alt="第二张"></a>
+	        </div>
+	        <div class="item">
+	            <a href="#"><img src="img/banner3.png" class="img-responsive" alt="第三张"></a>
+	        </div>
+	    </div>
+	    <!--设置轮播器箭头区域-->
+	    <a href="#myCarousel" data-slide="prev" class="carousel-control left">
+	        <span class="glyphicon glyphicon-chevron-left"></span>
+	    </a>
+	    <a href="#myCarousel" data-slide="next" class="carousel-control right">
+	        <span class="glyphicon glyphicon-chevron-right"></span>
+	    </a>
+	</div>	
+    <div class="container">  
+        <!--利用FORM表单来做，应用bootstrap中的各种现成的样式，通过col-md-offset-X来调节该DIV的位置。-->  
+        <form class="form-horizontal col-md-offset-3 ">  
+            <div class="form-group" >  
+                <div class="col-md-8 text-center">  
+                    <h3>用户登录</h3>  
+                </div>  
+            </div>  
+            <!--这里制作用户名跟输入框，利用col-md-X（中等屏幕）来设置div跟label的大小  
+            手机屏幕用col-xs-X参数设置大小，超大屏幕用col-lg-X设置  
+            值得注意的是，COL栅格系统最多把屏幕分为12列，所以同一行不能超过12列的分配。-->  
+            <div class="form-group">  
+              <label class="col-md-2 control-label">用户名</label>  
+                <div class="col-md-4">  
+                    <input type="text" id="txtUserName" class="form-control"  placeholder="输入用户名" />  
+                </div>  
+            </div>      
+            <!--这里同上-->  
+            <div class="form-group">  
+              <label class="col-md-2 control-label">用户密码</label>  
+                <div class="col-md-4">  
+                    <input type="password" class="form-control"  placeholder="输入密码" />  
+                </div>  
+            </div>      
+                
+            <!--这里制作登录按钮，相关代码还有一段JavaScript的，在下面。-->  
+            <div class="form-group text-center">  
+              <div class="col-md-6">  
+                <button autocomplete="off" data-loading-text="正在登录..."    
+                class="btn btn-danger" type="button"  id="cmdLogin">登录</button>  
+              </div>  
+            </div>          
+        </form>  
+    </div>
+     <!--这里制作一个模态框，相关还有一句JavaScript代码-->  
+    <!-- <div class="modal" id="aa">  
+        <div class="col-md-6 col-md-offset-3"   
+            style="background: #FFFFFF;border-radius: 6px;  
+            margin-top:150px;line-height: 30pt;">  
+            <p class="page-header">你好，天气不错</p>     
+            <p>Overflowing text to show scroll behavior Cras mattis   
+                consectetur purus sit amet fermentum. Cras justo odio,   
+                dapibus ac facilisis in, egestas eget quam. Morbi leo risus,   
+                porta!  
+            </p>     
+            <p class="text-right"><button class="btn btn-success"  
+             onclick='$("#aa").modal("hide")'>关闭</button></p>  
+        </div>  
+    </div> -->
+    <script>
+    	/**
+		 * Created by admin on 2017/5/2.
+		 */
+		$(function () {
+		    $('#myCarousel').carousel({
+		        //设置自动播放/3 秒
+		        interval: 3000,
+		    });
+		});
+
+        //这一句代码是调用了bootstrap的函数,直接传入ID即可使用.  
+        // $('#aa').modal("show")  
+        //这里是根据登录按钮的事件写的一段JavaScript代码,应对不同事件产生不同的效果.  
+        function login(){  
+	        //假设是服务器交互方法  
+	        $("#cmdLogin").button("reset");  
+	        }  
+	        $(document).ready(function(){  
+	        $("#cmdLogin").popover({  
+	                content:"用户名和密码必须填写",  
+	                "title":"错误"  
+	        })  
+         
+	        $("#cmdLogin").click(function(){  
+	              
+	            if($("#txtUserName").val()!="")  
+	              {  
+	                $("#cmdLogin").popover("hide");  
+	                 alert("登录成功");  
+	              }  
+	        })  
+        })
+    </script>          
+</body>
+</html>

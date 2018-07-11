@@ -1,0 +1,25 @@
+<!doctype html>  
+<html lang="en">  
+    <head>  
+    <meta charset="UTF-8">
+    </head>  
+    <body>  
+        <p id="sto" style="display:none;">从前有座山，山里有座庙，庙里有个老和尚跟老尼姑，有一天,</p>
+        <p id="show"></p>
+    </body>  
+     <script>
+         window.onload=function(){
+              var story = document.getElementById('sto');
+              var s = document.getElementById('show');
+              var a = story.innerHTML.slice("");
+              var i = 0;
+              timer=setInterval(function(){
+                s.innerHTML=story.innerHTML.substring(0,i)
+                i++;
+                if(s.innerHTML==story.innerHTML){
+                    clearInterval(timer);
+                };
+              },500);
+            }
+     </script>   
+</html>  

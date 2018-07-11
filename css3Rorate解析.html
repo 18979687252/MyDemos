@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3_rotate</title>
+	<style>
+		.rotate_demo {
+			clear: both;
+			overflow: hidden;
+			padding-bottom:60px;
+		}
+		.rotate_demo div{
+			float:left;
+			margin:0 40px;
+		}
+		.rotate_demo p{
+			margin-bottom:80px;
+		}
+
+		img{
+			width:300px;
+			height:300px;
+		}
+		.textIndex{
+			text-indent: 24px;
+		}
+		.img_x{
+			transform:rotateX(45deg);
+		}
+		.img_y{
+			transform:rotateY(45deg);
+		}
+		.img_z{
+			transform:rotateZ(45deg);
+		}
+		.img_3d{
+			transform:rotate3d(1,1,1,45deg);
+		}
+		.img_3d_x{
+			transform:rotate3d(1,0,0,45deg);
+		}
+		.img_3d_y{
+			transform:rotate3d(0,1,0,45deg);
+		}
+		.img_3d_z{
+			transform:rotate3d(0,0,1,45deg);
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>笛卡尔系统的原坐标：transform-origin:50% 50% 0</p>
+		<p>1、rotateX(angle)</p>
+			<p class="textIndex">以 x 軸正方向的順時針方向，按指定角度旋轉。</p>
+		<p>2、rotateY(angle)</p>
+			<p class="textIndex">以 y 軸正方向的順時針方向，按指定角度旋轉。</p>
+		<p>3、rotateZ(angle)</p>
+			<p class="textIndex">以 z 軸正方向的順時針方向，按指定角度旋轉。</p>
+	</div>
+	<div class="rotate_demo">
+		<div>
+			<p>原图</p>
+			<img src="img/flower1.jpg" alt="">
+		</div>
+		<div>
+			<p>transform:rotateX(45deg);</p>
+			<img class="img_x" src="img/flower1.jpg" alt="">
+		</div>
+		<div>
+			<p>transform:rotateY(45deg);</p>
+			<img class="img_y" src="img/flower1.jpg" alt="">
+		</div>
+		<div>
+			<p>transform:rotateZ(45deg);</p>
+			<img class="img_z" src="img/flower1.jpg" alt="">
+		</div>
+	</div>
+	<div class="rotate_demo">
+		<div>
+			<p>transform:rotate3d(1,1,1,45deg);</p>
+			<img class="img_3d" src="img/flower1.jpg" alt="">
+		</div>
+		<div>
+			<p>transform:rotate3d(1,0,0,45deg);</p>
+			<img class="img_3d_x" src="img/flower1.jpg" alt="">
+		</div>
+		<div>
+			<p>transform:rotate3d(0,1,0,45deg);</p>
+			<img class="img_3d_y" src="img/flower1.jpg" alt="">
+		</div>
+		<div>
+			<p>transform:rotate3d(0,0,1,45deg);</p>
+			<img class="img_3d_z" src="img/flower1.jpg" alt="">
+		</div>
+	</div>
+</body>
+</html>
